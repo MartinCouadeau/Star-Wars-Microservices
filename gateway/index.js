@@ -1,7 +1,5 @@
 const express = require("express")
 const morgan = require("morgan")
-require('dotenv').config();
-const { PORT } = process.env;
 const { createProxyMiddleware } = require("http-proxy-middleware")
 
 const app = express()
@@ -10,24 +8,27 @@ app.use(morgan("dev"))
 app.use(
   "/characters",
   createProxyMiddleware({
-    target: "http://localhost:4001"
+    target: "http://characters:4001",
+    changeOrigin: true
   })
 )
 
 app.use(
   "/films",
   createProxyMiddleware({
-    target: "http://localhost:4002"
+    target: "http://films:4002",
+    changeOrigin: true
   })
 )
 
 app.use(
   "/planets",
   createProxyMiddleware({
-    target: "http://localhost:4003"
+    target: "http://planets:4003",
+    changeOrigin: true
   })
 )
 
-app.listen(PORT, () => {
-  console.log(`Gateway on port ${PORT}`)
+app.listen(4000, () => {
+  console.log(`Gateway on port ${4000}`)
 })
