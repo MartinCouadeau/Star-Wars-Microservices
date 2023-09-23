@@ -1,12 +1,25 @@
-const films = require("./films.json")
+const axios = require('axios');
 
+const url_db = "http://data:4004/Film"
 
 module.exports = {
   list: async () => {
-    return films
+    const { data } = await axios.get(url_db);
+    return data.data;
   },
 
-  create: async () => {
-    throw Error("an error has ocurred while creating the film in the DB")
-  }
+  create: async (film) => {
+    const { data } = await axios.post(url_db, film);
+    return data.data;
+  },
+
+  getOne: async (id) => {
+    const { data } = await axios.get(`${url_db}/${id}`);
+    return data.data;
+  },
+
+  remove: async (id) => {
+    const { data } = await axios.delete(`${url_db}/${id}`);
+    return data.data;
+  },
 }
