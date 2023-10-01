@@ -31,14 +31,14 @@ Please note that you do not need to set up or run the application locally. Simpl
 ### Planets
 
 - `GET /planets`: Get all planets
-- `GET /planets/#`: Get 1 character where "#" is the ID of the planet
+- `GET /planets/#`: Get 1 planet where "#" is the ID of the planet
 - `POST /planets`: Create a new planet
 - `DELETE /planets/#`: Delete a character where "#" is the ID of the planet
 
 ### Films
 
 - `GET /films`: Get all film
-- `GET /films/#`: Get 1 character where "#" is the ID of the film
+- `GET /films/#`: Get 1 film where "#" is the ID of the film
 - `POST /films`: Create a new film
 - `DELETE /films/#`: Delete a character where "#" is the ID of the film
 
